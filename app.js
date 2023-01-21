@@ -20,5 +20,16 @@ context.lineTo(300,150);
 context.strokeStyle = `blue`;
 context.stroke()
 
+//Arcs / Circle
+context.beginPath(); 
+context.arc(200,500,50,0,Math.PI*2,false);
+context.strokeStyle = `gold`;
+context.stroke();
+
+//Arcs / Circle fill
+context.beginPath(); 
+context.arc(400,500,50,0,Math.PI*2,false);
+context.fillStyle = `gold`;
+context.fill();
 
 console.log(`%c Canvas is ready`,`background:green; color:white;`);

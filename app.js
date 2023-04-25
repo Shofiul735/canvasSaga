@@ -28,7 +28,7 @@ context.stroke();
 
 //Arcs / Circle fill
 context.beginPath(); 
-context.arc(400,500,50,0,Math.PI*2,false);
+context.arc(400,500,50,0,Math.PI*2,false); //reference: https://www.w3schools.com/tags/img_arc.gif
 context.fillStyle = `gold`;
 context.fill();
 

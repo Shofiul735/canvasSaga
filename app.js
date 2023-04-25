@@ -33,14 +33,28 @@ context.fillStyle = `gold`;
 context.fill();
 
 // circles in random positions
-let x,y;
-for(let i=0;i<60;i++){
-    x = Math.random() * window.innerWidth;
-    y = Math.random() * window.innerHeight;
-    context.beginPath(); 
-    context.arc(x,y,50,0,Math.PI*2,false);
-    context.fillStyle = `gold`;
-    context.stroke();
+
+//context.save();
+
+const randomPosition = () => {
+    let x,y;
+    for(let i=0;i<60;i++){
+        x = Math.random() * window.innerWidth;
+        y = Math.random() * window.innerHeight;
+        context.beginPath(); 
+        context.arc(x,y,50,0,Math.PI*2,false);
+        context.fillStyle = `gold`;
+        context.stroke();
+    }
+    //context.restore();
+
+    setTimeout(()=>{
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        window.requestAnimationFrame(randomPosition);
+    },500)
 }
+//randomPosition();
+
+window.requestAnimationFrame(randomPosition);
 
 console.log(`%c Canvas is ready`,`background:green; color:white;`);

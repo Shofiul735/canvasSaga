@@ -58,3 +58,29 @@ const randomPosition = () => {
 window.requestAnimationFrame(randomPosition);
 
 console.log(`%c Canvas is ready`,`background:green; color:white;`);
+
+//#region draw a line 
+// const mouseMoveListenerHandler = (event) => {
+//     const x = event.x;
+//     const y = event.y;
+//     context.lineTo(x,y);
+//     context.strokeStyle = `blue`;
+//     context.stroke();
+// };
+
+// const mouseDownListener = (event) => {
+//      context.beginPath();
+//     canvas.addEventListener('mousemove',mouseMoveListenerHandler);
+// }
+
+
+// const mouseUpListener = (event) => {
+//     canvas.removeEventListener('mousedown',mouseMoveListenerHandler);
+//     canvas.removeEventListener('mousemove',mouseMoveListenerHandler);
+//     canvas.removeEventListener('mouseup',mouseUpListener);
+//     console.log('mousedown mousemove & mouseup listener removed');
+// }
+// canvas.addEventListener('mouseup',mouseUpListener);
+// canvas.addEventListener('mousedown',mouseDownListener);
+//#endregion
+

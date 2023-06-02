@@ -1,4 +1,7 @@
 const canvas  = document.getElementById('canvas');
+const download  = document.getElementById('download');
+const downloadLink  = document.getElementById('download-link');
+
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
 console.log(canvas);
@@ -55,32 +58,39 @@ const randomPosition = () => {
 }
 //randomPosition();
 
-window.requestAnimationFrame(randomPosition);
+//window.requestAnimationFrame(randomPosition);
 
 console.log(`%c Canvas is ready`,`background:green; color:white;`);
 
+download.addEventListener('click',(event)=> {
+    var imagedata = canvas.toDataURL("image/png");
+    downloadLink.href = imagedata;
+    downloadLink.click();
+});
+
+
 //#region draw a line 
-// const mouseMoveListenerHandler = (event) => {
-//     const x = event.x;
-//     const y = event.y;
-//     context.lineTo(x,y);
-//     context.strokeStyle = `blue`;
-//     context.stroke();
-// };
+const mouseMoveListenerHandler = (event) => {
+    const x = event.x;
+    const y = event.y;
+    context.lineTo(x,y);
+    context.strokeStyle = `blue`;
+    context.stroke();
+};
 
-// const mouseDownListener = (event) => {
-//      context.beginPath();
-//     canvas.addEventListener('mousemove',mouseMoveListenerHandler);
-// }
+const mouseDownListener = (event) => {
+     context.beginPath();
+    canvas.addEventListener('mousemove',mouseMoveListenerHandler);
+}
 
 
-// const mouseUpListener = (event) => {
-//     canvas.removeEventListener('mousedown',mouseMoveListenerHandler);
-//     canvas.removeEventListener('mousemove',mouseMoveListenerHandler);
-//     canvas.removeEventListener('mouseup',mouseUpListener);
-//     console.log('mousedown mousemove & mouseup listener removed');
-// }
-// canvas.addEventListener('mouseup',mouseUpListener);
-// canvas.addEventListener('mousedown',mouseDownListener);
+const mouseUpListener = (event) => {
+    canvas.removeEventListener('mousedown',mouseMoveListenerHandler);
+    canvas.removeEventListener('mousemove',mouseMoveListenerHandler);
+    canvas.removeEventListener('mouseup',mouseUpListener);
+    console.log('mousedown mousemove & mouseup listener removed');
+}
+canvas.addEventListener('mouseup',mouseUpListener);
+canvas.addEventListener('mousedown',mouseDownListener);
 //#endregion
 
